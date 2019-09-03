@@ -1,0 +1,103 @@
+<div class="form-group">
+  <input type="text" class="form-control" id="selecao" [(ngModel)]="fifa_code" placeholder="Buscar uma Seleção">
+  <button type="submit" class="btn btn-primary mb-2" (click)="dados()">Buscar</button>
+</div>
+<table *ngFor="let s of dadosTime">
+  <tr>
+    <th>Fase</th>
+    <th>Pais</th>
+    <th>Gols</th>
+    <th>Pais</th>
+    <th>Gols</th>
+    <th>Quem fez o(s) gol(s) - Time da Casa </th>
+    <th>Quem fez o(s) gol(s) - Time Adversario </th>
+
+  </tr>
+  <tr>
+    <td>{{s.stage_name}}</td>
+    <td>{{s.home_team_country}}</td>
+    <td>{{s.home_team.goals}}</td>
+    <td>{{s.away_team_country}}</td>
+    <td>{{s.away_team.goals}}</td>
+    <td>
+      <div *ngFor="let e of s.home_team_events | filterBy: userFilter">{{e.type_of_event}},{{e.player}},{{e.time}}</div>
+    </td>
+    <td>
+      <div *ngFor="let ev of s.away_team_events | filterBy: userFilter">{{ev.type_of_event}},{{ev.player}},{{ev.time}}
+      </div>
+    </td>
+
+  </tr>
+
+</table>
+
+<br>
+<br>
+
+<div *ngFor="let s of dadosTime">
+  <table>
+    <tr>
+      <th>Pais</th>
+      <th>{{s.home_team_country}}</th>
+      <th>{{s.away_team_country}}</th>
+    </tr>
+    
+    <tr>
+      <th>Tentativas de Gols</th>
+      <td>{{s.home_team_statistics.attempts_on_goal}}</td>
+      <td>{{s.away_team_statistics.attempts_on_goal}}</td>
+    </tr>
+    <tr>
+      <th>Chutes a Gol</th>
+      <td>{{s.home_team_statistics.on_target}}</td>
+      <td>{{s.away_team_statistics.on_target}}</td>
+    </tr>
+    <tr>
+      <th>Chutes pra Fora</th>
+      <td>{{s.home_team_statistics.off_target}}</td>
+      <td>{{s.away_team_statistics.off_target}}</td>
+    </tr>
+    <tr>
+      <th>Chutes Defendidos</th>
+      <td>{{s.home_team_statistics.blocked}}</td>
+      <td>{{s.away_team_statistics.blocked}}</td>
+    </tr>
+    <tr>
+      <th>Posse de Bola(%)</th>
+      <td>{{s.home_team_statistics.ball_possession}}</td>
+      <td>{{s.away_team_statistics.ball_possession}}</td>
+    </tr>
+    <tr>
+      <th>Numero de Passe</th>
+      <td>{{s.home_team_statistics.num_passes}}</td>
+      <td>{{s.away_team_statistics.num_passes}}</td>
+    </tr>
+    <tr>
+      <th>Passes Certos</th>
+      <td>{{s.home_team_statistics.passes_completed}}</td>
+      <td>{{s.away_team_statistics.passes_completed}}</td>
+    </tr>
+    <tr>
+      <th>Cartões Amarelos</th>
+      <td>{{s.home_team_statistics.yellow_cards}}</td>
+      <td>{{s.away_team_statistics.yellow_cards}}</td>
+    </tr>
+    <tr>
+      <th>Cartões Vermelhos</th>
+      <td>{{s.home_team_statistics.red_cards}}</td>
+      <td>{{s.away_team_statistics.red_cards}}</td>
+    </tr>
+    <tr>
+      <th>Faltas Cometidas</th>
+      <td>{{s.home_team_statistics.fouls_committed}}</td>
+      <td>{{s.away_team_statistics.fouls_committed}}</td>
+    </tr>
+    <tr>
+      <th>Tatica</th>
+      <td>{{s.home_team_statistics.tactics}}</td>
+      <td>{{s.away_team_statistics.tactics}}</td>
+    </tr>
+    <br>
+
+  </table>
+</div>

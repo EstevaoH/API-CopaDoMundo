@@ -1,0 +1,24 @@
+<table *ngFor="let r of resultados">
+
+  <tr>
+    <th>Fase</th>
+    <th>Local</th>
+    <th>Time</th>
+    <th>Gols</th>
+    <th>Time</th>
+    <th>Gols</th>
+    <th>Publico</th>
+    <th>Data</th>
+  </tr>
+
+  <tr>
+    <td>{{r.stage_name}}</td>
+    <td>{{r.location}}</td>
+    <td>{{r.home_team.country}}</td>
+    <td>{{r.home_team.goals}}</td>
+    <td>{{r.away_team.country}}</td>
+    <td>{{r.away_team.goals}}</td>
+    <td>{{r.attendance}}</td>
+    <td>{{r.datetime}}</td>
+  </tr>
+</table>

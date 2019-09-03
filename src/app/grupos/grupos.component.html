@@ -1,0 +1,25 @@
+<table *ngFor="let g of grupos; let i=index">
+  <tr>
+    <h3>Grupo {{g.letter[0]}}</h3>
+    <th>Sigla</th>
+    <th>Vitorias</th>
+    <th>Derrotas</th>
+    <th>Jogos</th>
+    <th>Pontos</th>
+    <th>Gols a favor</th>
+    <th>Gols contra</th>
+    <th>Saldo de gols</th>
+  </tr>
+
+  <tr *ngFor="let grupo of g.ordered_teams">
+    <td >{{grupo.country}}</td>
+    <td>{{grupo.fifa_code}}</td>
+    <td>{{grupo.wins}}</td>
+    <td>{{grupo.losses}}</td>
+    <td>{{grupo.games_played}}</td>
+    <td>{{grupo.points}}</td>
+    <td>{{grupo.goals_for}}</td>
+    <td>{{grupo.goals_against}}</td>
+    <td>{{grupo.goal_differential}}</td>
+  </tr>
+</table>

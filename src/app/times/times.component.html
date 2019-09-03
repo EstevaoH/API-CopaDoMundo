@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Pais</th>
+    <th>Sigla</th>
+    <th>Grupo</th>
+  </tr>
+
+  <tr *ngFor="let t of times">
+    <td>{{t.id}}</td>
+    <td>{{t.country}}</td>
+    <td>{{t.fifa_code}}</td>
+    <td>{{t.group_letter}}</td>
+  </tr>
+
+</table>
